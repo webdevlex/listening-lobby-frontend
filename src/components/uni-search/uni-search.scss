@@ -1,0 +1,10 @@
+.search-form {
+	display: flex;
+}
+
+.results {
+	width: 100%;
+	display: flex;
+	overflow-y: auto;
+	margin-block: 10px;
+}

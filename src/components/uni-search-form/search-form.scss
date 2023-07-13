@@ -1,0 +1,103 @@
+.search-form {
+	display: flex;
+	flex-direction: column;
+	// height: 100px;
+}
+
+.search-bar {
+	margin-left: 20px;
+	margin-bottom: 22px;
+	padding: 10px;
+	background-color: var(--gray-100);
+	width: fit-content;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+
+	input {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		color: var(--gray-600);
+		width: 100%;
+	}
+
+	.submit-button {
+		cursor: pointer;
+		outline: none;
+		border: none;
+		padding: 0;
+		background-color: transparent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.arrrow-icon {
+		width: 25px;
+		height: 25px;
+		color: var(--gray-400);
+		margin-inline: 5px;
+	}
+
+	.search-icon {
+		width: 20px;
+		height: 20px;
+		color: var(--gray-400);
+		margin-inline: 10px;
+	}
+}
+
+.large-artist-name {
+	font-size: 80px;
+	font-weight: 700;
+	margin-left: 30px;
+}
+
+.search-header {
+	display: flex;
+	border-bottom: var(--gray-400) 1px solid;
+	width: 97%;
+	margin-inline: auto;
+
+	.search-header-text {
+		text-transform: uppercase;
+		font-size: 14px;
+		color: var(--gray-600);
+		position: relative;
+		width: 100%;
+		padding-left: 10px;
+		padding-bottom: 5px;
+	}
+
+	.track-title {
+		width: 50%;
+	}
+
+	.album-title {
+		width: 50%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.search-bar {
+		margin-left: 0;
+	}
+
+	.large-artist-name {
+		margin-left: 10px;
+	}
+	.search-header .search-header-text {
+		padding-block: 8px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		cursor: pointer;
+	}
+
+	.selected {
+		background-color: var(--gray-300);
+		color: white;
+	}
+}

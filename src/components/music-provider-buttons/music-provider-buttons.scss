@@ -1,0 +1,26 @@
+.services-container {
+	display: flex;
+	margin-block: 40px;
+	border-radius: 15px;
+	height: fit-content;
+	margin-inline: 20px;
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	max-height: 250px;
+	max-width: 250px;
+	width: 100%;
+	padding: 20px;
+	border: none;
+	background-color: transparent;
+	border-radius: 15px;
+	height: fit-content;
+}
+
+.choose-service .selected {
+	background-color: var(--grey-200);
+}

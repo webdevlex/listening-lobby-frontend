@@ -1,0 +1,12 @@
+.search-section {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+@media (max-width: 850px) {
+	.search-section {
+		padding: 20px 30px;
+	}
+}

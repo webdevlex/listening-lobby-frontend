@@ -1,0 +1,71 @@
+.lobby-settings {
+}
+
+.settings-button {
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	padding: 6px 0;
+	margin-bottom: 6px;
+	border-radius: 5px;
+	color: var(--gray-500);
+
+	&:hover {
+		color: var(--gray-600);
+	}
+
+	.simple-text {
+		font-size: 14px;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+}
+
+.settings-icon {
+	margin-right: 20px;
+	height: 20px;
+	width: 20px !important;
+}
+
+.messages-button {
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 850px) {
+	.lobby-settings {
+		display: flex;
+		height: 100%;
+
+		.section-title {
+			display: none;
+		}
+
+		.simple-text {
+			margin-top: 4px;
+			font-size: 10px;
+		}
+	}
+
+	.settings-button {
+		flex: 1;
+		justify-content: center;
+		margin: 0;
+		border-radius: 0px;
+		padding: 0;
+		flex-direction: column;
+	}
+
+	.settings-icon {
+		margin: 0px;
+		height: 25px;
+		width: 25px !important;
+	}
+
+	.messages-button {
+		display: flex;
+	}
+}

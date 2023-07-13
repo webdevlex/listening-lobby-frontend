@@ -1,0 +1,147 @@
+.hero {
+	width: 100%;
+	height: 670px;
+	background-color: var(--grey-100);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding-inline: 40px;
+}
+
+.hero-heading-container {
+	max-width: 1400px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	gap: 60px;
+}
+
+.hero .left {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	flex: 2;
+}
+
+.hero .right {
+	flex: 3;
+}
+
+.hero-text-container {
+	max-width: 500px;
+
+	.heading {
+		font-size: 60px;
+		line-height: 80px;
+		color: white;
+		width: 100%;
+	}
+
+	.sub-heading {
+		margin: 20px 0 40px 0;
+		font-size: 20px;
+		font-weight: 300;
+		color: white;
+	}
+}
+
+.hero-illustration {
+	height: 100%;
+}
+
+.button-container {
+	width: fit-content;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.create {
+	position: relative;
+	background: linear-gradient(
+		0,
+		rgba(99, 26, 255, 1) 0%,
+		rgba(214, 106, 223, 1) 100%
+	);
+}
+
+#join {
+	position: relative;
+	background-color: transparent;
+}
+
+#join::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 50px;
+	padding: 2px;
+	background: linear-gradient(
+		0,
+		rgba(99, 26, 255, 1) 0%,
+		rgba(214, 106, 223, 1) 100%
+	);
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: destination-out;
+	mask-composite: exclude;
+}
+
+@media (max-width: 1025px) {
+	.hero {
+		height: fit-content;
+		padding: 40px;
+	}
+
+	.hero .left {
+		width: 100%;
+		align-items: center;
+		flex: auto;
+		text-align: center;
+	}
+	.hero-text-container {
+		max-width: 600px;
+
+		.sub-heading {
+			padding-inline: 20px;
+		}
+	}
+	.hero-heading-container {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 800px) {
+	.hero {
+		padding-block: 60px;
+	}
+
+	.hero-text-container {
+		.heading {
+			font-size: 50px;
+			line-height: 60px;
+		}
+
+		.sub-heading {
+			font-size: 16px;
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.hero-text-container {
+		.heading {
+			font-size: 40px;
+			line-height: 50px;
+		}
+
+		.sub-heading {
+			font-size: 16px;
+		}
+	}
+}

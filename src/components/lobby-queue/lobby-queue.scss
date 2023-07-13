@@ -1,0 +1,11 @@
+.lobby-queue {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+@media (max-width: 1000px) {
+	.lobby-queue {
+		overflow-y: visible;
+		height: fit-content;
+	}
+}

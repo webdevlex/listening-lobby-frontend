@@ -1,0 +1,84 @@
+.lobby {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 200px 1fr 300px;
+	grid-template-rows:
+		3fr
+		6fr
+		90px;
+	grid-template-areas:
+		'settings center messages'
+		'members center messages'
+		'player player player';
+	background-color: var(--grey-100);
+}
+
+.player-grid {
+	grid-area: player;
+	background-color: var(--gray-300);
+	color: white;
+}
+
+.members-grid {
+	grid-area: members;
+	background-color: var(--gray-100);
+	color: white;
+	padding: 15px;
+}
+
+.messages-grid {
+	grid-area: messages;
+	background-color: var(--gray-100);
+	color: white;
+	padding: 15px;
+	position: relative;
+}
+
+.settings-grid {
+	grid-area: settings;
+	color: white;
+	background-color: var(--gray-100);
+	padding: 15px;
+}
+
+.center-grid {
+	grid-area: center;
+	background-color: var(--gray-200);
+	color: white;
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+	.center-grid {
+		padding: 0px;
+	}
+}
+
+@media (max-width: 850px) {
+	.lobby {
+		// grid-template-areas:
+		// 'settings center messages'
+		// 'members center messages'
+		// 'player player player';
+
+		grid-template-columns: 1fr;
+		grid-template-rows: 6fr 60px 70px;
+		grid-template-areas:
+			'center center center'
+			'player player player'
+			'settings settings settings';
+	}
+
+	.messages-grid,
+	.members-grid {
+		display: none;
+	}
+
+	.settings-grid {
+		padding: 0px;
+	}
+}

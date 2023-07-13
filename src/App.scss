@@ -1,0 +1,101 @@
+.App {
+	font-family: 'Poppins', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--grey-100: #17141e;
+	--grey-200: #211e29;
+	--grey-300: #2a2633;
+	--grey-400: #373242;
+	--grey-500: #6b6779;
+
+	--gray-100: #2f3136;
+	--gray-200: #36393f;
+	--gray-250: #3b3f46;
+	--gray-300: #40444b;
+	--gray-400: #4c4f53;
+	--gray-500: #a1a1a1;
+	--gray-600: #cfcfcf;
+	--gray-700: #e6e6e6;
+
+	--red: rgb(221, 60, 60);
+	--green: rgb(87, 211, 87);
+}
+
+.hide {
+	display: none;
+}
+
+.section-title {
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: 500;
+	color: white;
+	padding-bottom: 2px;
+	border-bottom: var(--gray-300) 1px solid;
+	margin-bottom: 10px;
+}
+
+.simple-text {
+	font-weight: 300;
+}
+
+*::-webkit-scrollbar {
+	width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#musickit-dialog-scrim,
+#musickit-dialog,
+#musickit-dialog-style {
+	display: none !important;
+}
+
+.default-button {
+	width: 160px;
+	text-decoration: none;
+	padding-block: 14px;
+	font-size: 14px;
+	color: white;
+	border-radius: 50px;
+	background-color: red;
+	border: none;
+
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+@media (max-width: 850px) {
+	.section-title {
+		font-size: 25px;
+	}
+}
+
+.popup {
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
