@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import SpotifyPlayer from '../spotify-player/SpotifyPlayer';
-import ApplePlayer from '../../components/apple-player/ApplePlayer';
+import React, { useEffect } from "react";
+import SpotifyPlayer from "../spotify-player/SpotifyPlayer";
+import ApplePlayer from "../../components/apple-player/ApplePlayer";
 
 function DesignatedPlayer({
 	user,
@@ -21,13 +21,13 @@ function DesignatedPlayer({
 	setShuffle,
 }) {
 	useEffect(() => {
-		if (user.music_provider === 'apple') {
+		if (user.music_provider === "apple") {
 			setLoading(false);
-			console.log('apple is ready');
+			console.log("apple is ready");
 		}
 	}, [user, setLoading]);
 
-	return user.music_provider === 'spotify' ? (
+	return user.music_provider === "spotify" ? (
 		<SpotifyPlayer
 			user={user}
 			playerStatus={playerStatus}

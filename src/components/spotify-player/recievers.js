@@ -1,4 +1,4 @@
-import * as handlers from './handlers.js';
+import * as handlers from "./handlers.js";
 
 export function setupSocketRecievers(
 	socket,
@@ -13,7 +13,7 @@ export function setupSocketRecievers(
 	setCurrentTime,
 	setPlayerActive
 ) {
-	console.log('setting up socket recievers');
+	console.log("setting up socket recievers");
 	handlers.setupPlayback(
 		spotifyPlayer,
 		device_id,
@@ -28,7 +28,7 @@ export function setupSocketRecievers(
 		setPlayerActive
 	);
 
-	socket.on('play', (song) => {
+	socket.on("play", (song) => {
 		handlers.play(
 			socket,
 			spotifyPlayer,
@@ -41,11 +41,11 @@ export function setupSocketRecievers(
 		);
 	});
 
-	socket.on('pause', (song) => {
+	socket.on("pause", (song) => {
 		handlers.pause(socket, spotifyPlayer, setPlaying, user, song);
 	});
 
-	socket.on('emptyQueue', () => {
+	socket.on("emptyQueue", () => {
 		handlers.emptyQueue(
 			socket,
 			spotifyPlayer,
@@ -56,11 +56,11 @@ export function setupSocketRecievers(
 		);
 	});
 
-	socket.on('getPlayerData', (memberId) => {
+	socket.on("getPlayerData", (memberId) => {
 		handlers.getPlayerData(socket, spotifyPlayer, user.lobby_id, memberId);
 	});
 
-	socket.on('firstSong', (queue) => {
+	socket.on("firstSong", (queue) => {
 		handlers.firstSong(
 			socket,
 			spotifyPlayer,
@@ -73,7 +73,7 @@ export function setupSocketRecievers(
 		);
 	});
 
-	socket.on('popped', (queue) => {
+	socket.on("popped", (queue) => {
 		handlers.popped(
 			socket,
 			spotifyPlayer,
@@ -86,7 +86,7 @@ export function setupSocketRecievers(
 		);
 	});
 
-	socket.on('removeFirst', (queue, playing) => {
+	socket.on("removeFirst", (queue, playing) => {
 		handlers.removeFirst(
 			socket,
 			spotifyPlayer,
@@ -99,7 +99,7 @@ export function setupSocketRecievers(
 		);
 	});
 
-	socket.on('setNewFirstSongAndPlay', (queue) => {
+	socket.on("setNewFirstSongAndPlay", (queue) => {
 		handlers.setNewFirstSongAndPlay(
 			socket,
 			spotifyPlayer,

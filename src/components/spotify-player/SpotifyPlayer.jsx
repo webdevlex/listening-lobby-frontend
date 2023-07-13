@@ -1,8 +1,8 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { playerSetup } from './playerSetup';
-import { SocketContext } from '../../context/SocketContextProvider';
-import { PlayersContext } from '../../context/PlayersContextProvider';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useContext, useState } from "react";
+import { playerSetup } from "./playerSetup";
+import { SocketContext } from "../../context/SocketContextProvider";
+import { PlayersContext } from "../../context/PlayersContextProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faPlay,
 	faPause,
@@ -10,12 +10,12 @@ import {
 	faVolumeUp,
 	faHeart,
 	faRandom,
-} from '@fortawesome/free-solid-svg-icons';
-import { faHeart as heartOutline } from '@fortawesome/free-regular-svg-icons';
-import LoadingSpinner from '../loading-spinner/LoadingSpinner';
-import './spotify-player.scss';
-import TimeBar from '../time-bar/TimeBar';
-import logo from '../../assets/images/listening-lobby-logo.svg';
+} from "@fortawesome/free-solid-svg-icons";
+import { faHeart as heartOutline } from "@fortawesome/free-regular-svg-icons";
+import LoadingSpinner from "../loading-spinner/LoadingSpinner";
+import "./spotify-player.scss";
+import TimeBar from "../time-bar/TimeBar";
+import logo from "../../assets/images/listening-lobby-logo.svg";
 
 function SpotifyPlayer({
 	user,
@@ -85,55 +85,55 @@ function SpotifyPlayer({
 
 		// Animation
 		let target = e.target;
-		if (e.target.type !== 'range') {
-			target = document.getElementById('range');
+		if (e.target.type !== "range") {
+			target = document.getElementById("range");
 		}
 		const min = target.min;
 		const max = target.max;
 		const val = target.value;
 
-		target.style.backgroundSize = ((val - min) * 100) / (max - min) + '% 100%';
+		target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%";
 	};
 
 	async function addSongToLibrary(spotifySong, appleSong, id) {
 		setLikedSongs([...likedSongs, id]);
-		if (user.music_provider === 'apple') {
+		if (user.music_provider === "apple") {
 			await applePlayer.addToLibrary(appleSong);
 		} else {
-			socket.emit('likeSong', { spotifySong, user });
+			socket.emit("likeSong", { spotifySong, user });
 		}
 	}
 
 	async function play() {
-		socket.emit('play', { user });
+		socket.emit("play", { user });
 	}
 
 	function skip() {
-		socket.emit('skip', { user });
+		socket.emit("skip", { user });
 	}
 	function toggleShuffle() {
-		socket.emit('setShuffle', { user });
+		socket.emit("setShuffle", { user });
 		setShuffle(!shuffle);
 	}
 
 	return loading ? null : (
-		<div className='player-bar'>
-			<div className='player-left'>
+		<div className="player-bar">
+			<div className="player-left">
 				{song ? (
 					<>
-						<div className='album-cover-container'>
-							<img className='album-cover' src={song.ui.trackCover} alt='' />
+						<div className="album-cover-container">
+							<img className="album-cover" src={song.ui.trackCover} alt="" />
 						</div>
-						<div className='text'>
-							<p className='simple-text track-title'>{song.ui.trackName}</p>
-							<p className='simple-text track-artists'>{song.ui.artists}</p>
+						<div className="text">
+							<p className="simple-text track-title">{song.ui.trackName}</p>
+							<p className="simple-text track-artists">{song.ui.artists}</p>
 						</div>
-						<div className='like-icon-container'>
+						<div className="like-icon-container">
 							{likedSongs.includes(queue[0].ui.id) ? (
-								<FontAwesomeIcon className='like-icon' icon={faHeart} />
+								<FontAwesomeIcon className="like-icon" icon={faHeart} />
 							) : (
 								<FontAwesomeIcon
-									className='like-icon'
+									className="like-icon"
 									icon={heartOutline}
 									onClick={() => {
 										addSongToLibrary(
@@ -148,38 +148,38 @@ function SpotifyPlayer({
 					</>
 				) : (
 					<>
-						<div className='album-cover-container'>
-							<p className='default-album-cover'>
-								<img className='logo' src={logo} alt='' />
+						<div className="album-cover-container">
+							<p className="default-album-cover">
+								<img className="logo" src={logo} alt="" />
 							</p>
 						</div>
-						<div className='text'>
-							<p className='simple-text track-title'>Listening Lobby</p>
-							<p className='simple-text track-artists'>
+						<div className="text">
+							<p className="simple-text track-title">Listening Lobby</p>
+							<p className="simple-text track-artists">
 								Search and add songs to your queue!
 							</p>
 						</div>
 					</>
 				)}
 			</div>
-			<div className='player-center'>
-				<div className='player-controls-container'>
+			<div className="player-center">
+				<div className="player-controls-container">
 					{buttonsClickable ? (
-						<div className='player-controls'>
+						<div className="player-controls">
 							<FontAwesomeIcon
-								className={shuffle ? 'shuffle-icon-green' : 'shuffle-icon'}
+								className={shuffle ? "shuffle-icon-green" : "shuffle-icon"}
 								onClick={() => toggleShuffle()}
 								icon={faRandom}
 							/>
-							<button className='play-button' onClick={() => play()}>
+							<button className="play-button" onClick={() => play()}>
 								{playing ? (
-									<FontAwesomeIcon className='pause-icon' icon={faPause} />
+									<FontAwesomeIcon className="pause-icon" icon={faPause} />
 								) : (
-									<FontAwesomeIcon className='play-icon' icon={faPlay} />
+									<FontAwesomeIcon className="play-icon" icon={faPlay} />
 								)}
 							</button>
 							<FontAwesomeIcon
-								className='skip-icon'
+								className="skip-icon"
 								onClick={() => skip()}
 								icon={faStepForward}
 							/>
@@ -190,13 +190,13 @@ function SpotifyPlayer({
 				</div>
 				<TimeBar percent={percent} currentTime={currentTime} song={song} />
 			</div>
-			<div className='player-right'>
-				<FontAwesomeIcon className='volume-icon' icon={faVolumeUp} />
+			<div className="player-right">
+				<FontAwesomeIcon className="volume-icon" icon={faVolumeUp} />
 				<input
-					className='volume-slider'
-					type='range'
-					min='0'
-					max='100'
+					className="volume-slider"
+					type="range"
+					min="0"
+					max="100"
 					defaultValue={volume}
 					onChange={updateVolume}
 					disabled={playerActive ? false : true}

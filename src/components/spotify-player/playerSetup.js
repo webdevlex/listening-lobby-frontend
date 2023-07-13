@@ -16,7 +16,7 @@ export function playerSetup(
 	const token = params.get("token");
 
 	const script = document.createElement("script");
-	script.src = "http://sdk.scdn.co/spotify-player.js";
+	script.src = "https://sdk.scdn.co/spotify-player.js";
 	script.async = true;
 
 	document.body.appendChild(script);
