@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
+import { backEndUrl } from "../../context/UrlContextProvider";
 
 export async function setUpMusicKit(
 	authorized,
@@ -7,7 +8,7 @@ export async function setUpMusicKit(
 	setAppleToken
 ) {
 	try {
-		const res = await axios.get('/apple/token');
+		const res = await axios.get(backEndUrl + "/apple/token");
 		const devToken = res.data.token;
 		setAppleToken(devToken);
 
@@ -15,8 +16,8 @@ export async function setUpMusicKit(
 			let configData = {
 				developerToken: devToken,
 				app: {
-					name: 'MusicKit Web App',
-					build: '1.0.0',
+					name: "MusicKit Web App",
+					build: "1.0.0",
 				},
 			};
 

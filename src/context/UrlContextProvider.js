@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const UrlContext = createContext();
 export const frontEndUrl =
 	process.env.NODE_ENV === "production"
-		? "https://listening-lobby.onrender.com"
+		? "https://listeninglobby.com"
 		: "http://localhost:3000";
 export const backEndUrl =
 	process.env.NODE_ENV === "production"
